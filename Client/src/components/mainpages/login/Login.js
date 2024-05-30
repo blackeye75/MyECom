@@ -24,7 +24,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="login-page">
+    <div className="register-page">
       <form onSubmit={loginSubmit}>
         <input
           type="email"
