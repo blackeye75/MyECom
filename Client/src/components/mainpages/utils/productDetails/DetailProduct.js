@@ -19,7 +19,7 @@ const DetailProduct = () => {
   if (detailProducts.length === 0) return null;
   return (
     <div className="detail">
-      <img src={detailProducts.images.url} />
+      <img alt="some img" src={detailProducts.images.url} />
       <div className="box-detail">
         <div className="row">
             <h2>{detailProducts.title}</h2>

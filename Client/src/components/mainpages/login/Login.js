@@ -24,8 +24,10 @@ const Login = () => {
     }
   };
   return (
-    <div className="register-page">
+    <div className="login-page">
       <form onSubmit={loginSubmit}>
+       <div className="emailipt" >
+       <label className="lbl" >Email</label>
         <input
           type="email"
           required
@@ -34,6 +36,9 @@ const Login = () => {
           name="email"
           onChange={onChangeInput}
         />
+       </div>
+       <div className="passwordipt" >
+       <label className="lbl" >Password</label>
         <input
           type="password"
           required
@@ -42,6 +47,7 @@ const Login = () => {
           name="password"
           onChange={onChangeInput}
         />
+       </div>
         <div className="row">
           <button type="submit">Login</button>
           <Link to="/register">Register Here</Link>

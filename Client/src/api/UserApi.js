@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const UserApi = ( token ) => {
   const [isLogged, setisLogged] = useState(false);

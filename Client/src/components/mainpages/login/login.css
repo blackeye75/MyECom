@@ -1,0 +1,73 @@
+.login-page, .register-page{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(95, 158, 160, 0.174);
+    
+}
+ form{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: #dadada;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(71, 68, 68);
+}
+.emailipt{
+    display: flex;
+    flex-direction: column;
+    margin: 15px  0;
+}
+.emailipt input{
+    padding: 5px;
+    outline: none; 
+    border: none;
+}
+.nameipt{
+    display: flex;
+    flex-direction: column;
+    margin: 5px  0;
+}
+.nameipt input{
+    padding: 5px;
+    outline: none; 
+    border: none;
+}
+.passwordipt{
+    display: flex;
+    flex-direction: column;
+   
+}
+.passwordipt input{
+    padding: 5px;
+    outline: none;
+    border: none;
+}
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.row button{
+    padding: 4px 8px;
+    font-size: 1rem;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 7px;
+    background-color: salmon;
+
+}
+.row button:hover{
+    background-color: rgb(255, 106, 65);
+}
+.row a{
+    /* margin-right: 10px; */
+    margin-top: 10px;
+    padding: 2.3px 8px;
+    color: black;
+    border-radius: 7px;
+    background-color: rgb(55, 133, 188);
+}

@@ -25,8 +25,10 @@ const Register = () => {
     }
   };
   return (
-    <div className="login-page">
+    <div className="register-page">
       <form onSubmit={registerSubmit}>
+       <div className="nameipt" >
+       <label>Name</label>
         <input
           type="text"
           required
@@ -35,6 +37,9 @@ const Register = () => {
           name="name"
           onChange={onChangeInput}
         />
+       </div>
+        <div className="emailipt" >
+        <label>Email</label>
         <input
           type="email"
           required
@@ -43,6 +48,9 @@ const Register = () => {
           name="email"
           onChange={onChangeInput}
         />
+        </div>
+       <div className="passwordipt" >
+       <label>Password</label>
         <input
           type="password"
           required
@@ -51,6 +59,7 @@ const Register = () => {
           name="password"
           onChange={onChangeInput}
         />
+       </div>
         <div className="row">
           <button type="submit">Register</button>
           <Link to="/login">Login</Link>
