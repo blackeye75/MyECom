@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </nav>
         <aside>
-          <p>Copyright © 2024 - All right reserved by DREAMCART PriyanshuRaj Ltd</p>
+          <p>Copyright © 2024 - All right reserved by DREAMCART Priyanshu Raj Ltd</p>
         </aside>
       </footer>
     </div>

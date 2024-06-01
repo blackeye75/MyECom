@@ -8,15 +8,17 @@ import axios from "axios";
 
 const Header = () => {
   const state = useContext(GlobalState);
-  console.log(state);
+  // console.log(state);
   const [isLogged, setisLogged] = state.UserApi.isLogged;
   const [isAdmin, setisAdmin] = state.UserApi.isAdmin;
+  const [cart,setCart]=state.UserApi.cart;
 
   const logoutUser = async () => {
     await axios.get("/user/logout");
     localStorage.clear();
     setisAdmin(false);
     setisLogged(false);
+    setCart("");
   };
 
   const adminRouter = () => {
@@ -51,7 +53,8 @@ const Header = () => {
       <div className="menu-mbl">
         <MdOutlineMenu size={30} />
       </div>
-      <div className="logo">
+      <div className="logo space-x-2 flex items-center">
+        <img className="h-14 w-14" src="./mylogo.png" alt="" />
         <h1>
           <Link to="/">{isAdmin ? "Admin" : "DreamCart"}</Link>
         </h1>
@@ -73,8 +76,8 @@ const Header = () => {
         ""
       ) : (
         <div className="cart-icon">
-          <span>0</span>
-          <Link>
+          <span>{cart.length}</span>
+         <Link  to='/cart' >
             <MdOutlineAddShoppingCart size={30} />
           </Link>
         </div>

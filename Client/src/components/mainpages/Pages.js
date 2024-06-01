@@ -16,6 +16,7 @@ const Pages = () => {
       <Route path='/cart' element={<Cart/>} />
       <Route path='/detail/:id' element={<DetailProduct/>} />
       <Route path='/contact' element={<Contact/>} />
+      <Route path='/cart' element={<Cart/>} />
     </Routes>
   )
 }
