@@ -3,7 +3,7 @@ import { GlobalState } from "../../../GlobalState";
 
 const Cart = () => {
   const state = useContext(GlobalState);
-  const [cart,setCart] = state.UserApi.cart;
+  const [cart] = state.UserApi.cart;
   const [isLogged]=state.UserApi.isLogged;
   // console.log(setCart);
   if(!isLogged) return (<h1 className="text-center text-4xl text-red-500 h-[70vh]" >Login please</h1>)
@@ -18,9 +18,9 @@ const Cart = () => {
             <div key={product._id} className="product_card py-3 h-fit">
               <img alt="img" src={product.images} />
               <div className="product_box">
-                <h2 title={product.title}>{product.title}</h2>
+                <h2 className="text-sm mt-1" title={product.title}>{product.title}</h2>
                 <span>${product.price}</span>
-                <p>{product.description}</p>
+                <p className="leading-4 text-md text-ellipsis overflow-hidden mb-2" >{product.description}</p>
                 <div className="buy">
                   <button className="px-4 py-1 rounded-lg font-semibold  bg-blue-500">
                     Buy

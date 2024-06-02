@@ -19,11 +19,11 @@ const DetailProduct = () => {
   if (detailProducts.length === 0) return null;
   return (
     <div className="detail">
-      <img alt="some img" src={detailProducts.images.url} />
+      <img alt="some img" src={detailProducts.images} className="border-2" />
       <div className="box-detail">
         <div className="row">
-            <h2>{detailProducts.title}</h2>
-            <h5>{detailProducts.product_id}</h5>
+            <h2 className="text-wrap" >{detailProducts.title}</h2>
+            {/* <h5>{detailProducts.product_id}</h5> */}
         </div>
             <span><b>$ </b>{detailProducts.price}</span>
             <p>{detailProducts.description}</p>

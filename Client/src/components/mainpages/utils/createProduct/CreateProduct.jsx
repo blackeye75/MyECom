@@ -25,22 +25,20 @@ const CreateProduct = () => {
   };
   // console.log(image);
 
-  const getImageLink=async (e)=>{
-    e.preventDefault()
-    const formdata=new FormData()
-    formdata.append("file",image);
-    const response = await axios.post("/api/upload",formdata, {
+  const getImageLink = async (e) => {
+    e.preventDefault();
+    const formdata = new FormData();
+    formdata.append("file", image);
+    const response = await axios.post("/api/upload", formdata, {
       headers: { Authorization: token },
     });
     setImageUrl(response.data.url);
-  }
-
+  };
 
   const productSubmit = async (event) => {
     event.preventDefault();
     // const formdata=new FormData()
     // formdata.append("file",image);
-   
 
     try {
       // const response = await axios.post("/api/upload",formdata, {
@@ -48,9 +46,8 @@ const CreateProduct = () => {
       // });
       // setImageUrl(response.data.url);
 
-      await axios.post('/api/products',{...productDetail});
-      window.location.href="/"
-
+      await axios.post("/api/products", { ...productDetail });
+      window.location.href = "/";
     } catch (error) {
       console.error("Error uploading image:", error);
     }
@@ -59,18 +56,24 @@ const CreateProduct = () => {
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setproductDetail({ ...productDetail, [name]: value });
-    
   };
 
   return (
-    <div className="productDetail">
+    <div className="productDetail flex items-center justify-center flex-col gap-10 p-10 ">
+      <h1 className="text-4xl text-blue-500">Admin Panel</h1>
+      <div className="flex px-16">
+        <input  accept="image/*" type="file" onChange={handleFileChange} />
+        <button
+          onClick={getImageLink}
+          className="px-3 py-2 bg-blue-500 rounded-lg"
+        >
+          Get Image Link
+        </button>
+      </div>
+        <h6><b>Copy link and paste in image field :</b> {imageUrl}</h6>
 
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={getImageLink} >Get Image Link</button>
-      <h6>{imageUrl}</h6>
-
-      <form onSubmit={productSubmit}>
-        <div className="productId">
+      <form onSubmit={productSubmit} className="w-[40%] gap-3 "  >
+        <div className="productId w-full ">
           <label>Product ID</label>
           <input
             type="text"
@@ -79,9 +82,10 @@ const CreateProduct = () => {
             value={productDetail.product_id}
             name="product_id"
             onChange={onChangeInput}
+            className="w-full rounded-md p-1 mt-1 outline-none"
           />
         </div>
-        <div className="title">
+        <div className="title w-full">
           <label>Title</label>
           <input
             type="text"
@@ -90,9 +94,10 @@ const CreateProduct = () => {
             value={productDetail.title}
             name="title"
             onChange={onChangeInput}
+            className="w-full rounded-md p-1 mt-1 outline-none"
           />
         </div>
-        <div className="price">
+        <div className="price w-full">
           <label>price</label>
           <input
             type="text"
@@ -101,9 +106,10 @@ const CreateProduct = () => {
             value={productDetail.price}
             name="price"
             onChange={onChangeInput}
+            className="w-full rounded-md p-1 mt-1 outline-none"
           />
         </div>
-        <div className="description">
+        <div className="description w-full">
           <label>description</label>
           <input
             type="text"
@@ -112,9 +118,10 @@ const CreateProduct = () => {
             value={productDetail.description}
             name="description"
             onChange={onChangeInput}
+            className="w-full rounded-md p-1 mt-1 outline-none"
           />
         </div>
-        <div className="content">
+        <div className="content w-full">
           <label>content</label>
           <input
             type="text"
@@ -123,9 +130,10 @@ const CreateProduct = () => {
             value={productDetail.content}
             name="content"
             onChange={onChangeInput}
+            className="w-full rounded-md p-1 mt-1 outline-none"
           />
         </div>
-        <div className="images">
+        <div className="images w-full">
           <label>images</label>
           <input
             // type="file"
@@ -137,10 +145,11 @@ const CreateProduct = () => {
             name="images"
             // onChange={onChangeInput}
             onChange={onChangeInput}
-            accept="image/*"
+           
+            className="w-full rounded-md p-1 mt-1 outline-none"
           />
         </div>
-        <div className="category">
+        <div className="category w-full">
           <label>category</label>
           <input
             type="text"
@@ -149,6 +158,7 @@ const CreateProduct = () => {
             value={productDetail.category}
             name="category"
             onChange={onChangeInput}
+            className="w-full rounded-md p-1 mt-1 outline-none"
           />
         </div>
         <div className="row">
@@ -173,7 +183,6 @@ export default CreateProduct;
 //   const submitImage = async () => {
 //     const formdata = new FormData()
 //     formdata.append("file", image);
-
 
 //     // Log the formData contents
 //         // for (let [key, value] of formdata.entries()) {
