@@ -3,10 +3,9 @@ import axios from "axios";
 import { GlobalState } from "../../../../GlobalState";
 
 const CreateProduct = () => {
-
-  const state=useContext(GlobalState);
-//  console.log(state);
-  const [token]=state.token;
+  const state = useContext(GlobalState);
+  //   console.log(state);
+  const [token] = state.token;
   // console.log(token);
 
   const [imageUrl, setImageUrl] = useState("");
@@ -24,31 +23,34 @@ const CreateProduct = () => {
   const handleFileChange = (event) => {
     setimage(event.target.files[0]);
   };
+  // console.log(image);
+
+  const getImageLink=async (e)=>{
+    e.preventDefault()
+    const formdata=new FormData()
+    formdata.append("file",image);
+    const response = await axios.post("/api/upload",formdata, {
+      headers: { Authorization: token },
+    });
+    setImageUrl(response.data.url);
+  }
+
 
   const productSubmit = async (event) => {
     event.preventDefault();
-    if (!image) {
-      alert("Please select a file");
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append("image", image);
-    console.log(formData);
+    // const formdata=new FormData()
+    // formdata.append("file",image);
+   
 
     try {
-      const response = await axios.post(
-        "http://localhost:3001/upload",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            headers: { Authorization: token },
-          },
-        }
-      );
+      // const response = await axios.post("/api/upload",formdata, {
+      //   headers: { Authorization: token },
+      // });
+      // setImageUrl(response.data.url);
 
-      setImageUrl(response.data.secure_url);
+      await axios.post('/api/products',{...productDetail});
+      window.location.href="/"
+
     } catch (error) {
       console.error("Error uploading image:", error);
     }
@@ -57,10 +59,16 @@ const CreateProduct = () => {
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setproductDetail({ ...productDetail, [name]: value });
+    
   };
 
   return (
     <div className="productDetail">
+
+      <input type="file" onChange={handleFileChange} />
+      <button onClick={getImageLink} >Get Image Link</button>
+      <h6>{imageUrl}</h6>
+
       <form onSubmit={productSubmit}>
         <div className="productId">
           <label>Product ID</label>
@@ -120,12 +128,15 @@ const CreateProduct = () => {
         <div className="images">
           <label>images</label>
           <input
-            type="file"
+            // type="file"
+            type="text"
             required
             placeholder="images"
-            // value={image}
+            value={productDetail.images}
+            // value={imageUrl}
             name="images"
-            onChange={handleFileChange}
+            // onChange={onChangeInput}
+            onChange={onChangeInput}
             accept="image/*"
           />
         </div>
@@ -149,3 +160,40 @@ const CreateProduct = () => {
 };
 
 export default CreateProduct;
+
+// import axios from "axios";
+// import React, { useContext, useState } from "react";
+// import { GlobalState } from "../../../../GlobalState";
+
+// const CreateProduct = () => {
+//   const state = useContext(GlobalState);
+//   const [token] = state.token;
+
+//   const [image, setimage] = useState("");
+//   const submitImage = async () => {
+//     const formdata = new FormData()
+//     formdata.append("file", image);
+
+
+//     // Log the formData contents
+//         // for (let [key, value] of formdata.entries()) {
+//         //     console.log(`${key}:`, value);
+//         // }
+
+//    const res=await axios.post('/api/upload',formdata,{
+//     headers:{Authorization:token}
+//    })
+//    const url=res.data.url;
+//   //  console.log(url);
+//   //  window.location.href={url}
+
+//   };
+//   return (
+//     <div>
+//       <input type="file" onChange={(e) => setimage(e.target.files[0])} />
+//       <button onClick={submitImage}>Submit</button>
+//     </div>
+//   );
+// };
+
+// export default CreateProduct;

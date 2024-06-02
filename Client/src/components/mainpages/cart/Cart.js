@@ -16,7 +16,7 @@ const Cart = () => {
         <div className="w-full h-fit justify-center items-center gap-10 flex flex-wrap">
           {cart.map((product) => (
             <div key={product._id} className="product_card py-3 h-fit">
-              <img alt="img" src={product.images.url} />
+              <img alt="img" src={product.images} />
               <div className="product_box">
                 <h2 title={product.title}>{product.title}</h2>
                 <span>${product.price}</span>

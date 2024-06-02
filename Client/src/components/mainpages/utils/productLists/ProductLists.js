@@ -14,7 +14,7 @@ const ProductLists = ({ product, isAdmin }) => {
     <div className="product_card py-3">
       {isAdmin && <input type="checkbox" onChange={()=>{}} checked={product.checked} />}
 
-      <img alt="img" src={product.images.url} />
+      <img alt="img" src={product.images} />
       <div className="product_box">
         <h2 title={product.title}>{product.title}</h2>
         <span>${product.price}</span>

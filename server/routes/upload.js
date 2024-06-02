@@ -12,10 +12,12 @@ cloudinary.config({
 
 router.post("/upload",auth, authAdmin, (req, res) => {
     try {
+      // console.log(req.files);
         if (!req.files || Object.keys(req.files).length === 0)
         return res.status(400).send({ msg: "No file were uploaded" });
-        // console.log(req.files.undefined)
-    const file = req.files.undefined;
+        // console.error(req.files)
+    const file = req.files.file;                //undefined postman and file in formtend
+    // const file=req.data.file;
     if (file.size > 1024 * 1024) {
       removeTmp(file.tempFilePath);
       return res.status(400).json({ msg: "Size too large" });
