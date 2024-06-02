@@ -12,6 +12,7 @@ export const DataProvider=({children})=>{
         const res=await axios.get('/user/refresh_token')
         settoken(res.data.accesstoken)
     }
+    // console.log(token);
 
     useEffect(()=>{
         const firstLogin=localStorage.getItem('firstLogin')

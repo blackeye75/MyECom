@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { MdOutlineMenu } from "react-icons/md";
 import { MdClose } from "react-icons/md";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import { GlobalState } from "../../GlobalState";
 import axios from "axios";
+import mylogo from '../../assects/mylogo.png'
 
 const Header = () => {
   const state = useContext(GlobalState);
@@ -54,7 +55,7 @@ const Header = () => {
         <MdOutlineMenu size={30} />
       </div>
       <div className="logo space-x-2 flex items-center">
-        <img className="h-14 w-14" src="./mylogo.png" alt="" />
+        <img className="h-14 w-14" src={mylogo} alt="" />
         <h1>
           <Link to="/">{isAdmin ? "Admin" : "DreamCart"}</Link>
         </h1>

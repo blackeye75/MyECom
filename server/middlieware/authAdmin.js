@@ -1,6 +1,7 @@
 const Users = require("../model/userModel");
 
 const authAdmin= async (req,res,next)=>{
+    // console.log(req);
     try {
         const user=await Users.findOne({
             _id:req.user.id

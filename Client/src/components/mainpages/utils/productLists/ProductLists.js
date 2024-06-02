@@ -12,7 +12,7 @@ const ProductLists = ({ product, isAdmin }) => {
   const addCart=state.UserApi.addCart;
   return (
     <div className="product_card py-3">
-      {isAdmin && <input type="checkbox" Checked={product.checked} />}
+      {isAdmin && <input type="checkbox" onChange={()=>{}} checked={product.checked} />}
 
       <img alt="img" src={product.images.url} />
       <div className="product_box">

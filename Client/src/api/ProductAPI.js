@@ -8,6 +8,8 @@ const ProductAPI = () => {
     // console.log(res.data.products);
     setproducts(res.data.products);
   };
+
+
   useEffect(() => {
     getProducts()
   },[]);
