@@ -6,7 +6,7 @@ const CreateProduct = () => {
   const state = useContext(GlobalState);
   //   console.log(state);
   const [token] = state.token;
-  // console.log(token);
+  
 
   const [imageUrl, setImageUrl] = useState("");
   const [image, setimage] = useState(null);

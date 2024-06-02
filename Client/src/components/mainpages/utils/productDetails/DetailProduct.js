@@ -15,7 +15,7 @@ const DetailProduct = () => {
       });
     }
   }, [params, products]);
-//   console.log(detailProducts);
+
   if (detailProducts.length === 0) return null;
   return (
     <div className="detail">
